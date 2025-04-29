@@ -17,6 +17,8 @@ import (
 	_ "github.com/caddyserver/caddy/v2/modules/standard"
 	_ "github.com/caddy-dns/cloudflare"
 	_ "github.com/mholt/caddy-dynamicdns"
+        _ "github.com/mliezun/caddy-snake"
+        _ "github.com/WeidiDeng/caddy-cloudflare-ip"
 )
 
 func main() {

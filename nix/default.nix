@@ -2,6 +2,7 @@
   buildGoModule,
   fetchFromGitHub,
   installShellFiles,
+  pkgs,
   lib,
   ...
 }: let
@@ -12,14 +13,20 @@
 
   caddy-version =  removePrefix "v" info.version;
   cloudflare-version-string = splitString "-" (removePrefix "v" info.cfVersion);
-  cloudflare-version = elemAt cloudflare-version-string 0 + "+" + elemAt cloudflare-version-string 2;
+  cloudflare-version = elemAt cloudflare-version-string 0;
 
   ddns-version-string = splitString "-" (removePrefix "v" info.ddnsVersion);
   ddns-version = elemAt ddns-version-string 0 + "+" + elemAt ddns-version-string 2;
+
+  snake-version-string = splitString "-" (removePrefix "v" info.snakeVersion);
+  snake-version = elemAt snake-version-string 0;
+
+  cloudflare-ip-version-string = splitString "-" (removePrefix "v" info.cfiVersion);
+  cloudflare-ip-version = elemAt cloudflare-ip-version-string 0 + "+" + elemAt cloudflare-ip-version-string 2;
 in
   buildGoModule {
     pname = "caddy-with-plugins";
-    version = caddy-version + "-" + cloudflare-version + "-" + ddns-version;
+    version = caddy-version + "-" + cloudflare-version + "-" + ddns-version + "-" + snake-version + "-" + cloudflare-ip-version;
 
     src = ../caddy-src;
 
@@ -32,7 +39,20 @@ in
       "-w"
     ];
 
-    nativeBuildInputs = [installShellFiles];
+    preInstall = ''
+      export CGO_ENABLED=1
+    '';
+
+    buildInputs = [
+      pkgs.dbus
+      pkgs.python3
+    ];
+
+    nativeBuildInputs = [
+      pkgs.pkg-config
+      installShellFiles
+    ];
+
     postInstall = ''
       install -Dm644 ${dist}/init/caddy.service ${dist}/init/caddy-api.service -t $out/lib/systemd/system
 

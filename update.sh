@@ -23,6 +23,8 @@ updateInfo() {
     version=$(sed -n 's#.*github.com/caddyserver/caddy/v2 \(.*\)#\1#p' "$ROOT_DIR/caddy-src/go.mod")
     cfVersion=$(sed -n 's#.*github.com/caddy-dns/cloudflare \(.*\)#\1#p' "$ROOT_DIR/caddy-src/go.mod")
     ddnsVersion=$(sed -n 's#.*github.com/mholt/caddy-dynamicdns \(.*\)#\1#p' "$ROOT_DIR/caddy-src/go.mod")
+    snakeVersion=$(sed -n 's#.*github.com/mliezun/caddy-snake \(.*\)#\1#p' "$ROOT_DIR/caddy-src/go.mod")
+    cfiVersion=$(sed -n 's#.*github.com/WeidiDeng/caddy-cloudflare-ip \(.*\)#\1#p' "$ROOT_DIR/caddy-src/go.mod")
     dist_hash=$(nix-prefetch-github caddyserver dist --rev "$version" | jq -r .hash)
 
     {
@@ -31,6 +33,8 @@ updateInfo() {
         echo "  version = \"$version\";"
         echo "  cfVersion = \"$cfVersion\";"
         echo "  ddnsVersion = \"$ddnsVersion\";"
+        echo "  snakeVersion = \"$snakeVersion\";"
+        echo "  cfiVersion = \"$cfiVersion\";"
         echo "  vendorHash = \"$1\";"
         echo "  dist = {"
         echo "    owner = \"caddyserver\";"

@@ -1,11 +1,15 @@
 module caddy
 
-go 1.24.2
+go 1.24
+
+toolchain go1.24.2
 
 require (
+	github.com/WeidiDeng/caddy-cloudflare-ip v0.0.0-20231130002422-f53b62aa13cb
 	github.com/caddy-dns/cloudflare v0.2.1
 	github.com/caddyserver/caddy/v2 v2.10.0
 	github.com/mholt/caddy-dynamicdns v0.0.0-20250419190939-bc90ac0e772f
+	github.com/mliezun/caddy-snake v0.1.5
 )
 
 require (
@@ -57,6 +61,7 @@ require (
 	github.com/google/go-tspi v0.3.0 // indirect
 	github.com/google/pprof v0.0.0-20250418163039-24c5476c6587 // indirect
 	github.com/google/uuid v1.6.0 // indirect
+	github.com/gorilla/websocket v1.5.0 // indirect
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.22.0 // indirect
 	github.com/huandu/xstrings v1.5.0 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
