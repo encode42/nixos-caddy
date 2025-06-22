@@ -1,13 +1,13 @@
 module caddy
 
-go 1.24.3
+go 1.24.4
 
 require (
 	github.com/WeidiDeng/caddy-cloudflare-ip v0.0.0-20231130002422-f53b62aa13cb
 	github.com/caddy-dns/cloudflare v0.2.1
 	github.com/caddyserver/caddy/v2 v2.10.0
 	github.com/mholt/caddy-dynamicdns v0.0.0-20250430031602-b846b9e8fb83
-	github.com/mliezun/caddy-snake v0.1.8
+	github.com/mliezun/caddy-snake v0.1.9
 )
 
 require (
