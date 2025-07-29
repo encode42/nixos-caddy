@@ -1,6 +1,6 @@
 module caddy
 
-go 1.24.4
+go 1.24.5
 
 require (
 	github.com/WeidiDeng/caddy-cloudflare-ip v0.0.0-20231130002422-f53b62aa13cb
