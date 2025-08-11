@@ -3,9 +3,9 @@
   version = "v2.10.0";
   cfVersion = "v0.2.1";
   ddnsVersion = "v0.0.0-20250430031602-b846b9e8fb83";
-  snakeVersion = "v0.1.9";
+  snakeVersion = "v0.1.10";
   cfiVersion = "v0.0.0-20231130002422-f53b62aa13cb";
-  vendorHash = "sha256-/FewhbLBtNbbFvigZrX2ojuOob+Z0QVleAYxZ/P25HA=";
+  vendorHash = "sha256-fmGDOj213reUqsjSZ2g61Sl26flmXWtgYbXDaWO9urE=";
   dist = {
     owner = "caddyserver";
     repo = "dist";
